@@ -68,7 +68,7 @@ export default {
       if (e.deltaY < -5 && curCarousel.value > 0) {
         isTurning.value = true;
         curCarousel.value--;
-      } else if (e.deltaY > 5 && curCarousel.value < banner.carouselList&&banner.carouselList.length - 1) {
+      } else if (e.deltaY > 5 && curCarousel.value < banner.carouselList.length - 1) {
         isTurning.value = true;
         curCarousel.value++;
       }

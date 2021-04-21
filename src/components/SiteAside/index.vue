@@ -6,7 +6,7 @@
       <MyMenu :menuList="menuList"/>
       <Contact :author="userInfo.author"/>
       <p class="footer">
-        @Wq王室集团
+        {{ userInfo.author.icp }}
       </p>
     </template>
 

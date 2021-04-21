@@ -3,7 +3,7 @@
     <li>
       <a :href="author.github">
         <Icon type="github"/>
-        <span>WANGQING</span>
+        <span>{{ author.githubName }}</span>
       </a>
     </li>
     <li>
@@ -13,7 +13,7 @@
       </a>
     </li>
     <li>
-      <a href="tencent://message/?Menu=yes&uin=1514004148&Service=300&sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a595b1714f9d45">
+      <a :href="`tencent://message/?Menu=yes&uin=${author.qq}&Service=300&sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a595b1714f9d45`">
         <Icon type="qq"/>
         <span>{{ author.qq }}</span>
       </a>
