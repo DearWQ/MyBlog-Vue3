@@ -1,4 +1,4 @@
-import loadUrl from "../assets/loading.svg";
+import loadUrl from "../../public/images/website/loading.svg";
 import loadStyle from "/src/directives/load.module.less"
 export default function (el,binding) {
     const curImg=getLadImg(el)

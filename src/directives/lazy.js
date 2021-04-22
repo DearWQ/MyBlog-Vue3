@@ -1,6 +1,6 @@
 import eventBus from "../eventBus";
 import debounce from "../utils/debounce";
-import defaultGif from "../assets/default.gif";
+import defaultGif from "../../public/images/website/default.gif";
 
 let images = []
 

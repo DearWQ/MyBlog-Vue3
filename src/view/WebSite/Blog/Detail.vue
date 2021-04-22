@@ -20,7 +20,7 @@ import BlogComment from "./components/BlogComment.vue";
 import {getBlog} from "../../../api/blog";
 import {useRoute} from "vue-router";
 import {ref, onUpdated} from "vue";
-import "../../../../../public/style/markdown.css"
+import "../../../../public/style/markdown.css"
 import "highlight.js/styles/github.css"
 import mainScroll from "../../../utils/mainScroll";
 import setWebTitle from "../../../utils/setWebTitle";

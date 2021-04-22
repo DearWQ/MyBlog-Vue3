@@ -1,5 +1,5 @@
 <template>
-  <img class="loading-container" src="../../assets/loading.svg" alt="">
+  <img class="loading-container" src="../../../public/images/website/loading.svg" alt="">
 </template>
 
 <script>

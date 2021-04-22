@@ -2,7 +2,7 @@
   <div class="login">
     <div class="boardLogin">
       <a href="#" class="logo">
-        <img src="images/loginLogo.png">
+        <img src="../../../../public/images/websysten/loginLogo.png">
       </a>
       <form>
         <div class="inpGroup">
