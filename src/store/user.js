@@ -2,7 +2,7 @@ import * as user from "../api/user/login";
 import {getAuthorList} from "../api/user";
 import {reactive, readonly, ref, toRefs} from "vue";
 import setWebTitle from "../utils/setWebTitle";
-const state = reactive({userInfo: null, isLoading: false, author: null})
+const state = reactive({data: null, isLoading: false, author: null})
 export const userInfo = readonly(state)
 
 /**
@@ -12,7 +12,7 @@ export const userInfo = readonly(state)
  */
 export async function login(loginInfo) {
     state.isLoading = true;
-    state.userInfo = await user.login(loginInfo);
+    state.data = await user.login(loginInfo);
     state.isLoading = false;
 }
 
@@ -33,9 +33,9 @@ export async function loginOut() {
  */
 export async function whoAmI() {
     state.isLoading = true;
-    const user = await user.whoami();
+    const res = await user.whoami();
     state.isLoading = false;
-    state.userInfo = user;
+    state.data = res;
 }
 
 /**

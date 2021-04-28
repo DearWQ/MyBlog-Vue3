@@ -1,67 +1,66 @@
 <template>
-  <div class="login">
+  <div class="login-container">
     <div class="boardLogin">
-      <a href="#" class="logo">
-        <img src="../../../../public/images/websysten/loginLogo.png">
-      </a>
-      <form>
+      <h1 @click="goBack"> 欢迎来到我的世界</h1>
         <div class="inpGroup">
           <span class="loginIco1"></span>
-          <input type="text" v-model="loginIdRef" placeholder="请输入您的用户名">
+          <input type="text" v-model="loginInfo.loginId" placeholder="请输入您的用户名">
         </div>
         <div class="prompt">
-          <p class="error" v-if="!loginIdRef">用户名错误或不存在</p>
+          <p class="error" v-if="!loginInfo.loginId">用户名错误或不存在</p>
         </div>
-
         <div class="inpGroup">
           <span class="loginIco2"></span>
-          <input type="password" v-model="loginPwdRef" placeholder="请输入您的密码">
+          <input type="password" v-model="loginInfo.password" placeholder="请输入您的密码">
         </div>
         <div class="prompt">
-          <p class="success" v-if="!loginPwdRef">请输入密码</p>
+          <p class="success" v-if="!loginInfo.password">请输入密码</p>
         </div>
-
-        <!-- <button class="submit">登录</button> -->
-        <a  class="submit" @click="login">登录</a>
-      </form>
+        <span  class="submit" @click="handleLogin">登录</span>
     </div>
   </div>
 </template>
 
 <script>
-import {ref} from "vue"
-import * as userApi from "../../../api/user/login";
+import {reactive, ref} from "vue"
+import {login,userInfo} from "../../../store/user";
 import {useRouter} from "vue-router";
-import {useStore} from "vuex"
 import {ElMessage} from 'element-plus';
 export default {
   name: "login",
   setup() {
-    let loginIdRef = ref("");
-    let loginPwdRef = ref("");
-    const store=useStore();
+    const loginInfo=reactive({
+      loginId:"",
+      password:""
+    })
     const router=useRouter();
-    let login = () => {
-      if(!loginIdRef.value||!loginPwdRef.value){
-        ElMessage.warning("请输入用户名或密码")
-        return false
-      }
-      userApi.login({loginId: loginIdRef.value, password: loginPwdRef.value}).then(res => {
+    const handleLogin = async () => {
+      // if(!loginInfo.loginId||!loginInfo.password){
+      //   ElMessage.warning("请输入用户名或密码")
+      //   return false
+      // }
+    // await login(loginInfo)
+    //   if(userInfo.data.loginId){
         router.push({
-          path:"/QRCode"
+          path: "/systemHome"
         })
-      })
+      // }
+
+    }
+    const goBack=()=>{
+      router.push({name:"Home"})
     }
     return {
-      loginIdRef,
-      loginPwdRef,
-      login,
+      loginInfo,
+      handleLogin,
+      goBack
     }
   }
 }
 </script>
 
-<style scoped>
+<style scoped lang="less">
+@import "public/style/globalColor";
 input::-webkit-input-placeholder {
   /* 修改字体颜色 */
   color: #fff;
@@ -70,115 +69,107 @@ input::-webkit-input-placeholder {
   /* 设置背景色 */
 }
 
-.login{
+.login-container{
   height: 100%;
-  position: relative;
-  z-index: 2;
-}
-.boardLogin{
-  width: 16.8%;
-  min-width: 200px;
-  margin: 0 auto;
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-.boardLogin .logo{
-  display: block;
-  margin-bottom: 40px;
-  text-align: center;
-}
-.boardLogin .logo img{
-  width: 100%;
-  max-width: 326px;
-}
-
-.boardLogin .inpGroup{
-  height: 20px;
-  padding: 14px 24px 14px 52px;
-  background: #2a658a;
-  background: rgba(255,255,255,0.1);
-  border-radius: 24px;
-  position: relative;
-}
-.boardLogin .inpGroup span{
-  display: block;
-  width: 20px;
-  height: 20px;
   position: absolute;
-  top: 14px;
-  left: 24px;
-}
-.boardLogin .inpGroup span.loginIco1{
-  background: url("/images/s_ico6.png");
-}
-.boardLogin .inpGroup span.loginIco2{
-  background: url("/images/s_ico7.png");
-}
-.boardLogin .inpGroup input{
-  display: block;
+  top: 0;
+  background: url("/images/websysten/login/1.gif")no-repeat;
   width: 100%;
-  height: 20px;
-  line-height: 20px;
-  color: #fff;
-}
-.boardLogin .inpGroup input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-  color: #fff; opacity:1;
+  object-fit: cover;
+  background-size: 100% 100%;
+  .boardLogin{
+    width: 16.8%;
+    min-width: 200px;
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    h1{
+      color: @fontColor;
+      cursor: pointer;
+      margin-bottom: 4%;
+    }
+    .inpGroup{
+      height: 20px;
+      padding: 14px 24px 14px 52px;
+      background: #2a658a;
+      background: rgba(226, 209, 209, 0.1);
+      border-radius: 24px;
+      position: relative;
+      .loginIco1{
+        background: url("/images/websysten/login/user.png")no-repeat;
+      }
+      .loginIco2{
+        background: url("/images/websysten/login/lock.png")no-repeat;
+      }
+      span{
+        display: block;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 14px;
+        left: 24px;
+      }
+      input{
+        display: block;
+        width: 100%;
+        height: 20px;
+        line-height: 20px;
+        color: #fff;
+        outline: none;
+        border: 0;
+        background: transparent;
+        & ::-webkit-input-placeholder{
+          color: #fff;opacity:1;
+        }
+      }
+
+    }
+    .prompt{
+      min-height: 20px;
+      padding: 5px 24px 10px 24px;
+      p{
+        line-height: 16px;
+        font-size: 12px;
+      }
+      .error{
+        color: #f60;
+      }
+      .success{
+        color: #449d44;
+      }
+    }
+    .submit{
+      width: 100%;
+      box-sizing: border-box;
+      display: block;
+      height: 40px;
+      line-height: 38px;
+      text-align: center;
+      border: 1px solid #01d1f2;
+      border-radius: 20px;
+      color: #fff;
+      cursor: pointer;
+      -webkit-transition: 0.3s ease-in-out;
+      -moz-transition: 0.3s ease-in-out;
+      -ms-transition: 0.3s ease-in-out;
+      -o-transition: 0.3s ease-in-out;
+      transition: 0.3s ease-in-out;
+      &:hover{
+        background: #01d1f2;
+        opacity: .8;
+        -webkit-transition: 0.3s ease-in-out;
+        -moz-transition: 0.3s ease-in-out;
+        -ms-transition: 0.3s ease-in-out;
+        -o-transition: 0.3s ease-in-out;
+        transition: 0.3s ease-in-out;
+      }
+    }
+  }
 }
 
-.boardLogin .inpGroup input::-moz-placeholder { /* Mozilla Firefox 19+ */
-  color: #fff;opacity:1;
-}
-
-.boardLogin .inpGroup input:-ms-input-placeholder{
-  color: #fff;opacity:1;
-}
-
-.boardLogin .inpGroup input::-webkit-input-placeholder{
-  color: #fff;opacity:1;
-}
-.boardLogin .prompt{
-  min-height: 20px;
-  padding: 5px 24px 10px 24px;
-}
-.boardLogin p{
-  line-height: 16px;
-  font-size: 12px;
-
-}
-.boardLogin p.error{
-  color: #f60;
-}
-.boardLogin p.success{
-  color: #449d44;
-}
-.boardLogin .submit{
-  width: 100%;
-  box-sizing: border-box;
-  display: block;
-  height: 40px;
-  line-height: 38px;
-  text-align: center;
-  border: 1px solid #01d1f2;
-  border-radius: 20px;
-  color: #fff;
-  cursor: pointer;
-  -webkit-transition: 0.3s ease-in-out;
-  -moz-transition: 0.3s ease-in-out;
-  -ms-transition: 0.3s ease-in-out;
-  -o-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
-}
-.boardLogin .submit:hover{
-  background: #01d1f2;
-  -webkit-transition: 0.3s ease-in-out;
-  -moz-transition: 0.3s ease-in-out;
-  -ms-transition: 0.3s ease-in-out;
-  -o-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
-}
 </style>

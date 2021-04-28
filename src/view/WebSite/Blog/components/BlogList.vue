@@ -19,7 +19,7 @@
           }">
             <h2>{{ item.title }}</h2>
           </router-link>
-          <div class="aside">
+          <div class="blogAside">
             <span>日期：{{ formatDate(item.createDate) }}</span>
             <span>浏览：{{ item.scanNumber }}</span>
             <span>评论{{ item.commentNumber }}</span>
@@ -174,7 +174,7 @@ li {
     }
   }
 
-  .aside {
+  .blogAside {
     font-size: 12px;
     color: @gray;
 

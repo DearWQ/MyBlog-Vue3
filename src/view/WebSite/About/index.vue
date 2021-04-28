@@ -1,6 +1,6 @@
 <template>
   <div class="about-container" v-load="aboutInfo.isLoading||!srcLoaded">
-    <iframe class="about-container" :src="aboutInfo.info" frameborder="0" @load="srcLoaded=true"></iframe>
+<!--    <iframe class="about-container" :src="aboutInfo.info" frameborder="0" @load="srcLoaded=true"></iframe>-->
   </div>
 
 </template>

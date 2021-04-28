@@ -15,6 +15,6 @@ Mock.mock("/api/setting", "get", {
     mail: "15297807880@dingtalk.com",
     icp: "王ICP备97019号",
     githubName: "DearWQ",
-    favicon: "http://mdrs.yuanjin.tech/Fs4CDlC6mwe_WXLMIiXcmSJLHO4f",
+    favicon: "https://avatars.githubusercontent.com/u/44079368?v=4",
   },
 });

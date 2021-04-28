@@ -2,11 +2,14 @@
 
 <template>
   <div class="pager-container" v-if="totalPage>1">
-    <a @click="handleClick(1)" :class="{disabled:curPage===1}">首页</a>
-    <a @click="handleClick(curPage-1)" :class="{disabled:curPage===1}">上一页</a>
-    <a @click="handleClick(n)" v-for="n in number" :class="{active:n===curPage}" :key="n">{{ n }}</a>
-    <a @click="handleClick(curPage+1)" :class="{disabled:curPage===totalPage}">下一页</a>
-    <a @click="handleClick(totalPage)" :class="{disabled:curPage===totalPage}">尾页</a>
+    <div class="pager-left"><span>当前第 {{curPage}} 页 / 总共 {{totalPage}} 页</span></div>
+    <div class="pager-right">
+      <a @click="handleClick(n)" v-for="n in number" :class="{active:n===curPage}" :key="n">{{ n }}</a>
+      <a @click="handleClick(1)" :class="{disabled:curPage===1}">首页</a>
+      <a @click="handleClick(curPage-1)" :class="{disabled:curPage===1}">上一页 </a>
+      <a @click="handleClick(curPage+1)" :class="{disabled:curPage===totalPage}">下一页</a>
+      <a @click="handleClick(totalPage)" :class="{disabled:curPage===totalPage}">尾页</a>
+    </div>
   </div>
 </template>
 
@@ -91,28 +94,36 @@ export default {
 
 .pager-container {
   display: flex;
-  justify-content: center;
   margin: 20px 0;
   height: 30px;
+  justify-content: space-between;
   line-height: 30px;
-  a {
-    text-align: center;
-    width: 48px;
+  .pager-left{
     color: @primary;
-    cursor: pointer;
-    &:hover{
-      color: @hover;
-    }
-    &.disabled {
-      color: @lightWords;
-      cursor: not-allowed;
-    }
+  }
+  .pager-right{
+    display: flex;
+    justify-content: center;
+    a {
+      text-align: center;
+      width: 60px;
+      color: @primary;
+      cursor: pointer;
+      &:hover{
+        color: @hover;
+      }
+      &.disabled {
+        color: @lightWords;
+        cursor: not-allowed;
+      }
 
-    &.active {
-      color: @words;
-      font-weight: bold;
-      cursor: text;
+      &.active {
+        color: @words;
+        font-weight: bold;
+        cursor: text;
+      }
     }
   }
+
 }
 </style>

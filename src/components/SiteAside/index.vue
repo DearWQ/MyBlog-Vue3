@@ -26,7 +26,7 @@ export default {
   setup() {
     const menuList = reactive([
       {
-        name: "Home",
+        name: "homePage",
         title: "首页",
         icon: "home",
         exact: true,

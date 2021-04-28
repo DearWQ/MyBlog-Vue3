@@ -1,7 +1,5 @@
 <template>
-  <div v-show="isShow" @click="backToTop" class="toTop-container">
-    Top
-  </div>
+  <div v-show="isShow" @click="backToTop" class="toTop-container"></div>
 </template>
 
 <script>
@@ -34,16 +32,20 @@ export default {
 <style scoped lang="less">
 @import "public/style/globalColor.less";
 .toTop-container{
-  background: @primary;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+  width: 120px;
+  height: 170px;
   position: fixed;
+  background: url("/images/website/toTop.gif");
+  background-size: 100% 100%;
+  object-fit: cover;
   z-index: 99;
-  right: 50px;
-  bottom: 50px;
+  right: 30px;
+  bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   cursor: pointer;
-  line-height: 50px;
   color: #fff;
   text-align: center;
 }

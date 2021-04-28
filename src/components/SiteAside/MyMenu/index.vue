@@ -30,7 +30,7 @@ export default {
 </script>
 
 <style scoped lang="less">
-@import "../../../../public/style/globalColor";
+@import "public/style/globalColor";
 
 .menu-container {
   color: @gray;

@@ -100,4 +100,27 @@ export default {
     color: @primary;
   }
 }
+div::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  /**/
+}
+
+div::-webkit-scrollbar-track {
+  background: #fff;
+  border-radius: 2px;
+}
+
+div::-webkit-scrollbar-thumb {
+  background: #efecec;
+  border-radius: 10px;
+}
+
+div::-webkit-scrollbar-thumb:hover {
+  background: #efecec;
+}
+
+div::-webkit-scrollbar-corner {
+  background: #efecec;
+}
 </style>
