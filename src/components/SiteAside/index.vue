@@ -2,7 +2,7 @@
   <div class="siteAside-container">
     <template v-if="userInfo.author">
       <Avatar :url="userInfo.author.avatar" />
-      <h1 class="title">{{ userInfo.author.siteTitle }}</h1>
+      <h1 class="title" @click="toLogin">{{ userInfo.author.siteTitle }}</h1>
       <MyMenu :menuList="menuList"/>
       <Contact :author="userInfo.author"/>
       <p class="footer">
@@ -19,6 +19,7 @@ import MyMenu from "./MyMenu/index.vue"
 import Contact from "./Contact/index.vue"
 import {ref, reactive, computed} from "vue";
 import {userInfo} from "../../store/user";
+import {useRouter} from "vue-router";
 
 export default {
   name: "index",
@@ -55,9 +56,14 @@ export default {
         exact: true,
       }
     ]);
+    const router=useRouter()
+    const toLogin=()=>{
+      router.push({name:"login"})
+    }
     return {
       menuList,
       userInfo,
+      toLogin
     }
   }
 }
@@ -69,6 +75,7 @@ export default {
   width: 100%;
   height: 100%;
   background: @dark;
+  border-right: 1px solid rgba(255, 255, 255, 0.24);
   padding: 20px 0;
   box-sizing: border-box;
   overflow-x: hidden;
@@ -81,11 +88,13 @@ export default {
   text-align: center;
   font-size: 1em;
   color: #fff;
+  padding-top: 6%;
+  cursor: pointer;
 }
 .footer {
   text-align: center;
   font-size: 12px;
-  color: #575050;
+  color: #7f7575;
 }
 
 

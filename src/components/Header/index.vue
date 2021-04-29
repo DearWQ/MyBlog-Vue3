@@ -40,6 +40,7 @@ export default {
   box-sizing: border-box;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.24);
   color: #fff;
   .header-title{
     font-size: 20px;

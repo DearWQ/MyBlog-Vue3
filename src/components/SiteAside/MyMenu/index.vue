@@ -33,7 +33,7 @@ export default {
 @import "public/style/globalColor";
 
 .menu-container {
-  color: @gray;
+  color: #fff;
   margin: 24px 0;
 
   a {
@@ -50,7 +50,7 @@ export default {
     }
 
     &:hover {
-      color: #fff;
+      color: @gray;
     }
 
 

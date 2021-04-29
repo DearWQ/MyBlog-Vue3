@@ -47,9 +47,9 @@ export default {
 .menu-container {
   width: 100%;
   height: 100%;
-  color: @gray;
+  color: @fontColor;
   box-sizing: border-box;
-
+  border-right: 1px solid rgba(255, 255, 255, 0.24);
   .menu {
     padding: 0 50px;
     display: flex;
@@ -62,7 +62,7 @@ export default {
     }
 
     &:hover {
-      color: #fff;
+      color: @gray;
     }
 
   }

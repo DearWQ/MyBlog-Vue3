@@ -7,15 +7,15 @@
       </a>
     </li>
     <li>
-      <a :href="`mailto:${author.mail}`">
-        <Icon type="mail"/>
-        <span>{{ author.mail }}</span>
-      </a>
-    </li>
-    <li>
       <a :href="`tencent://message/?Menu=yes&uin=${author.qq}&Service=300&sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a595b1714f9d45`">
         <Icon type="qq"/>
         <span>{{ author.qq }}</span>
+      </a>
+    </li>
+    <li>
+      <a :href="`mailto:${author.mail}`">
+        <Icon type="mail"/>
+        <span>{{ author.mail }}</span>
       </a>
     </li>
     <li>
@@ -24,7 +24,7 @@
         <span>{{ author.weixin }}</span>
       </a>
       <div class="pop">
-        <img src="http://www.duyiedu.com/source/img/%E5%B0%8F%E6%B8%A1%E5%BE%AE%E4%BF%A1%E4%BA%8C%E7%BB%B4%E7%A0%81.png"
+        <img src="../../../../public/images/website/wechat.jpg"
              alt="">
       </div>
     </li>
@@ -54,7 +54,7 @@ export default {
   list-style: none;
   padding: 20px;
   margin: 0;
-  color: @gray;
+  color: #fff;
   @itemHeight: 30px;
 
   li {

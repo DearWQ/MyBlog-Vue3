@@ -21,7 +21,7 @@ export default {
   width: 100%;
   height: 100%;
   display: flex;
-  background:linear-gradient(to top,rgba(0,130,255,1), rgb(248, 246, 246));
+  //background:linear-gradient(to top,rgba(0,130,255,1), rgb(248, 246, 246));
   justify-content: center;
   align-items: center;
 }

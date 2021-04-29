@@ -19,13 +19,15 @@
         <span  class="submit" @click="handleLogin">登录</span>
     </div>
   </div>
+  <canvas id="starrySky"></canvas>
 </template>
 
 <script>
-import {reactive, ref} from "vue"
+import {onMounted, reactive, ref} from "vue"
 import {login,userInfo} from "../../../store/user";
 import {useRouter} from "vue-router";
 import {ElMessage} from 'element-plus';
+import drawSky from "../../../utils/FiftyCentsSpecialEffects/drawStarrySky";
 export default {
   name: "login",
   setup() {
@@ -50,6 +52,9 @@ export default {
     const goBack=()=>{
       router.push({name:"Home"})
     }
+    onMounted(()=>{
+      drawSky(document.querySelector("#starrySky"))
+    })
     return {
       loginInfo,
       handleLogin,
@@ -73,10 +78,7 @@ input::-webkit-input-placeholder {
   height: 100%;
   position: absolute;
   top: 0;
-  background: url("/images/websysten/login/1.gif")no-repeat;
   width: 100%;
-  object-fit: cover;
-  background-size: 100% 100%;
   .boardLogin{
     width: 16.8%;
     min-width: 200px;
@@ -171,5 +173,4 @@ input::-webkit-input-placeholder {
     }
   }
 }
-
 </style>

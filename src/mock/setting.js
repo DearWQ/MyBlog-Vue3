@@ -4,7 +4,7 @@ Mock.mock("/api/setting", "get", {
   msg: "",
   data: {
     avatar: "https://avatars.githubusercontent.com/u/44079368?v=4",
-    siteTitle: "我的个人空间",
+    siteTitle: "进入个人空间",
     github: "https://github.com/DearWQ",
     qq: "1113141147",
     qqQrCode:

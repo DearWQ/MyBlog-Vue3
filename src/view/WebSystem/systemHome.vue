@@ -16,17 +16,21 @@
         <router-view/>
       </template>
     </systemLayout>
+<!--    <SystemWrap/>-->
   </div>
+  <canvas id="systemSky"></canvas>
 </template>
 
 <script>
+import drawSky from "../../utils/FiftyCentsSpecialEffects/drawStarrySky";
 import systemLayout from "../../components/Layout/systemLayout.vue";
 import Header from "../../components/Header/index.vue";
 import MySelf from "../../components/MySelf/index.vue";
 import SystemMenu from "../../components/SystemMenu/index.vue";
 import Empty from "../../components/Empty/index.vue"
 import BlogList from "../WebSystem/Blogs/blogList.vue";
-import {reactive} from "vue";
+import SystemWrap from "../../components/SystemWrap/index.vue"
+import {onMounted, reactive} from "vue";
 
 export default {
   name: 'home',
@@ -36,7 +40,8 @@ export default {
     Header,
     Empty,
     BlogList,
-    MySelf
+    MySelf,
+    SystemWrap
   },
   setup() {
     const menuList = reactive([
@@ -65,6 +70,9 @@ export default {
         title: "留言评论",
       }
     ]);
+    onMounted(()=>{
+      drawSky(document.querySelector("#systemSky"))
+    })
     return {
       menuList
     }
@@ -81,14 +89,12 @@ export default {
 .header{
   height: 60px;
   width: 100%;
-  background: @blackBg;
 }
 .container{
   height: calc(100% - 60px);
 }
 .aside {
   width: 200px;
-  background: @blackBg;
   height: 100%;
 }
 </style>

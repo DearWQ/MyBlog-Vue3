@@ -99,7 +99,7 @@ export default {
   justify-content: space-between;
   line-height: 30px;
   .pager-left{
-    color: @primary;
+    color: @fontColor;
   }
   .pager-right{
     display: flex;
@@ -107,7 +107,7 @@ export default {
     a {
       text-align: center;
       width: 60px;
-      color: @primary;
+      color: @fontColor;
       cursor: pointer;
       &:hover{
         color: @hover;
@@ -118,7 +118,7 @@ export default {
       }
 
       &.active {
-        color: @words;
+        color: @lightWords;
         font-weight: bold;
         cursor: text;
       }
